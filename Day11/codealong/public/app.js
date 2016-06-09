@@ -61,78 +61,79 @@ $(document).ready(function(){
 
 ////////////////////////////////////////////////
 
+//Authorization below
 
-
-  // login = function(loginobj) {
-  //   $.ajax({
-  //     method: "POST",
-  //     url: "/auth",
-  //     data: loginobj
-  //   }).then(function(response){
-  //       console.log(response);
-  //       $(".loginemail").val("");
-  //       $(".loginpassword").val("");
-  //       $(".registeremail").val("");
-  //       $(".registerpassword").val("");
-  //       $(".registerfname").val("");
-  //       $(".registerlname").val("");
-  //       $(".auth").hide();
-  //       $(".logoutbutton").show();
-  //       $('.success').show();
-  //       setTimeout(function(){
-  //         $('.success').fadeOut(1000);
-  //       }, 700);
-  //       getMe();
-  //     }, function(err) {
-  //       console.log(err);
-  //       $('.error').show();
-  //       setTimeout(function(){
-  //         $('.error').fadeOut(1000);
-  //       }, 1200);
-  //     }
-  //   );
-  // };
-  // logout = function() {
-  //   $.ajax({
-  //     method: "GET",
-  //     url: "/user/logout"
-  //   }).then(function(response){
-  //     console.log(response);
-  //     $(".intro").remove();
-  //     $(".auth").show();
-  //     $(".logoutbutton").hide();
-  //     $('.logout').show();
-  //     setTimeout(function(){
-  //       $('.logout').fadeOut(1000);
-  //     }, 700);
-  //   })
-  // }
-  // getMe = function () {
-  //     $.ajax({
-  //       method: "GET",
-  //       url: '/user/me'
-  //     }).then(function (response) {
-  //       $(".intro").remove();
-  //       $("body").prepend(`<h1 class="intro">Welcome ` + response.fname + `!</h1>`);
-  //     });
-  //   };
-  //
-  // $(".pushtoregister").click(function(){
-  //   $(".login").hide();
-  //   $(".register").show();
-  // })
-  //
-  // $(".pushtologin").click(function(){
-  //   $(".register").hide();
-  //   $(".login").show();
-  // })
-  //
-  // $(".loginbutton").click(function(){
-  //   var loginobj = {
-  //     email: $(".loginemail").val(),
-  //     password: $(".loginpassword").val()
-  //   };
-  //   login(loginobj);
-  // });
-
+  login = function(loginobj) {
+    $.ajax({
+      method: "POST",
+      url: "/auth",
+      data: loginobj
+    }).then(function(response){
+        console.log(response);
+        $(".loginemail").val("");
+        $(".loginpassword").val("");
+        $(".registeremail").val("");
+        $(".registerpassword").val("");
+        $(".registerfname").val("");
+        $(".registerlname").val("");
+        $(".auth").hide();
+        $(".logoutbutton").show();
+        $('.success').show();
+        setTimeout(function(){
+          $('.success').fadeOut(1000);
+        }, 700);
+        getMe();
+      }, function(err) {
+        console.log(err);
+        $('.error').show();
+        setTimeout(function(){
+          $('.error').fadeOut(1000);
+        }, 1200);
+      }
+    );
+  };
+  logout = function() {
+    $.ajax({
+      method: "GET",
+      url: "/user/logout"
+    }).then(function(response){
+      console.log(response);
+      $(".intro").remove();
+      $(".auth").show();
+      $(".logoutbutton").hide();
+      $('.logout').show();
+      setTimeout(function(){
+        $('.logout').fadeOut(1000);
+      }, 700);
+    })
+  }
+  getMe = function () {
+      $.ajax({
+        method: "GET",
+        url: '/user/me'
+      }).then(function (response) {
+        $(".intro").remove();
+        $("body").prepend(`<h1 class="intro">Welcome ` + response.fname + `!</h1>`);
+      });
+    };
+  
+  $(".pushtoregister").click(function(){
+    $(".login").hide();
+    $(".register").show();
+  })
+  
+  $(".pushtologin").click(function(){
+    $(".register").hide();
+    $(".login").show();
+  })
+  
+  $(".loginbutton").click(function(){
+    var loginobj = {
+      email: $(".loginemail").val(),
+      password: $(".loginpassword").val()
+    };
+    login(loginobj);
+  });
+// authorization above
+////////////////////////////////////////////////
 });

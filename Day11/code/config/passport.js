@@ -17,7 +17,7 @@ module.exports = function(passport) { //call in passport as a parameter
         usernameField : 'email',//this can be username, email, anything as long as you update all other instances of email on this file.
         passwordField : 'password',
         passReqToCallback : true//this makes its so we only need one callback function below
-    },
+    }),
     function(req, email, password, done) {
         process.nextTick(function() { //waits until all previous code has completed then runs callback function. This is a node function.
           User.findOne({'email': email}, function(err, user) { //find by email mongoose function
@@ -37,9 +37,9 @@ module.exports = function(passport) { //call in passport as a parameter
                   newUser.save(function(err) { //save to mongo
                       if (err) throw err;
                       return done(null, newUser);
-                  });
+                  })
               }
-          });
-        });
-    }));
-};
+          })
+        })
+    };
+);
